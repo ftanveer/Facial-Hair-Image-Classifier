@@ -113,8 +113,8 @@ def cropped_image_if_2_eyes(image_path, image_base64_data):
     return eye_check
 
 def moustache(image_path, image_base64_data):
-    face_cascade = cv2.CascadeClassifier('./opencv/sources/data/haarcascades/haarcascade_frontalface_default.xml')
-    eye_cascade = cv2.CascadeClassifier("./opencv/sources/data/haarcascades/haarcascade_eye.xml")
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 
     img = cv2.imread(image_path)
 
