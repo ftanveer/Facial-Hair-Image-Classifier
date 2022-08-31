@@ -88,8 +88,8 @@ def cropped_image_if_2_eyes(image_path, image_base64_data):
     eye_check = True
     #we are using this block to check if image has two eyes or not
 
-    face_cascade = cv2.CascadeClassifier('./opencv/sources/data/haarcascades/haarcascade_frontalface_default.xml')
-    eye_cascade = cv2.CascadeClassifier("./opencv/sources/data/haarcascades/haarcascade_eye.xml")
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
 
     if image_path:
         img = cv2.imread(image_path)
