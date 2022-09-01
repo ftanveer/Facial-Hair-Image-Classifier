@@ -18,9 +18,25 @@ The following styles of facial hair can be recognized at the moment.
 More styles will be added in the near future
 """)
 
-image = Image.open('Chevron.png')
+image_1 = Image.open('Chevron.png')
 
-st.image(image, caption='Chevron Moustache')
+st.image(image_1, caption='Chevron Moustache')
+
+image_2 = Image.open('handlebar.jpeg')
+
+st.image(image_2, caption='Handlebar Moustache')
+
+image_3 = Image.open('Horseshoe.png')
+
+st.image(image_3, caption='Horseshoe Moustache')
+
+image_4 = Image.open('Toothbrush.png')
+
+st.image(image_4, caption='Toothbrush Moustache')
+
+image_5 = Image.open('Pencil.png')
+
+st.image(image_5, caption='Pencil Moustache')
 
 def predict():
 
