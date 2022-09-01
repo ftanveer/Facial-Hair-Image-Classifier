@@ -13,6 +13,9 @@ Upload an image of face with facial hair and let us classify them!
 
 """)
 
+st.subheader("##Prediction")
+st.write(predict())
+
 st.write("""
 The following styles of facial hair can be recognized at the moment.
 More styles will be added in the near future
@@ -61,5 +64,3 @@ def predict():
 
     return predicted
 
-st.subheader("Prediction")
-st.write(predict())
