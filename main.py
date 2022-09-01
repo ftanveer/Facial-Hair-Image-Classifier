@@ -13,8 +13,14 @@ Upload an image of face with facial hair and let us classify them!
 
 """)
 
+st.write("""
+The following styles of facial hair can be recognized at the moment.
+More styles will be added in the near future
+""")
 
+image = Image.open('Chevron.png')
 
+st.image(image, caption='Chevron Moustache')
 
 def predict():
 
