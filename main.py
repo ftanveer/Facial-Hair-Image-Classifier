@@ -36,7 +36,7 @@ def predict():
     return predicted
 
 
-st.subheader("##Prediction")
+st.subheader("## Prediction")
 st.write(predict())
 
 st.write("""
