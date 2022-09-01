@@ -12,6 +12,29 @@ st.write("""
 Upload an image of face with facial hair and let us classify them!
 
 """)
+def predict():
+
+
+    imagefile = st.sidebar.file_uploader("Upload the image",type=["png","jpg","jpeg"])
+
+    if imagefile != None:
+
+        image_b64 = base64.b64encode(imagefile.read())
+
+
+
+
+        util.load_saved_artifacts()
+
+
+
+        predicted = util.classify_image(image_b64, None)
+
+    else:
+        predicted = 0
+
+    return predicted
+
 
 st.subheader("##Prediction")
 st.write(predict())
@@ -41,26 +64,4 @@ image_5 = Image.open('Pencil.png')
 
 st.image(image_5, caption='Pencil Moustache')
 
-def predict():
-
-
-    imagefile = st.sidebar.file_uploader("Upload the image",type=["png","jpg","jpeg"])
-
-    if imagefile != None:
-
-        image_b64 = base64.b64encode(imagefile.read())
-
-
-
-
-        util.load_saved_artifacts()
-
-
-
-        predicted = util.classify_image(image_b64, None)
-
-    else:
-        predicted = 0
-
-    return predicted
 
