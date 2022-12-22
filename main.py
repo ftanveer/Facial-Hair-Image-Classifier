@@ -19,16 +19,16 @@ def predict():
 
     if imagefile != None:
 
-        image_b64 = base64.b64encode(imagefile.read())
+        try:
 
+            image_b64 = base64.b64encode(imagefile.read())
 
+            util.load_saved_artifacts()
 
-
-        util.load_saved_artifacts()
-
-
-
-        predicted = util.classify_image(image_b64, None)
+            predicted = util.classify_image(image_b64, None)
+        except:
+            print("Image could not be predicted unfortunately, please try a different image")
+            predicted = 0
 
     else:
         predicted = 0
@@ -63,5 +63,6 @@ st.image(image_4, caption='Toothbrush Moustache')
 image_5 = Image.open('Pencil.png')
 
 st.image(image_5, caption='Pencil Moustache')
+
 
 
