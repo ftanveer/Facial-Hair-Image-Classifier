@@ -37,18 +37,17 @@ def classify_image(image_base64_data, file_path= None):
             prediction = __model.predict(final)[0]
 
         except:
-            prediction = None
-
-        if prediction != None:
-            result.append({
-                'class' : class_number_to_name(),
-                # 'class_prob' : np.round(__model.predict_proba(final)* 100, 2).tolist()[0],
-                # 'class_dictionary': __class_name_to_number
+            result = "None"
 
 
-            })# This might just be returning one image anyways even if two faces, check this
-        else:
-            result = "Cannot predict"
+        result.append({
+            'class' : class_number_to_name(prediction),
+            # 'class_prob' : np.round(__model.predict_proba(final)* 100, 2).tolist()[0],
+            # 'class_dictionary': __class_name_to_number
+
+
+        })# This might just be returning one image anyways even if two faces, check this
+
 
 
 
