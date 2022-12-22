@@ -32,15 +32,18 @@ def classify_image(image_base64_data, file_path= None):
         len_image_array = (50 * 50 * 3) + (50 *50)
         final = combined_img.reshape(1, len_image_array).astype(float) #converts to 10,000 columns and 1 row
 
+        prediction = __model.predict(final)[0]
+        if prediction != None:
+            result.append({
+                'class' : class_number_to_name(),
+                # 'class_prob' : np.round(__model.predict_proba(final)* 100, 2).tolist()[0],
+                # 'class_dictionary': __class_name_to_number
 
 
-        result.append({
-            'class' : class_number_to_name(__model.predict(final)[0]),
-            # 'class_prob' : np.round(__model.predict_proba(final)* 100, 2).tolist()[0],
-            # 'class_dictionary': __class_name_to_number
+            })# This might just be returning one image anyways even if two faces, check this
+        else:
+            result = "Could not predict"
 
-
-        }) # This might just be returning one image anyways even if two faces, check this
 
 
     return result
