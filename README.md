@@ -9,6 +9,7 @@ DATA COLLECTION.ipynb
 DATA PROCESSING.ipynb
 
 **Web Scraper:**
+
 web_scraper/ Bing_Image_Scrape.py
 
 
