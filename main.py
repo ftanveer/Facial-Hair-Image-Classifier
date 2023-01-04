@@ -3,8 +3,8 @@ import util
 
 import base64
 from PIL import Image
+import imghdr
 import io
-
 
 st.write("""
 # Facial Hair Classifier
@@ -12,33 +12,35 @@ st.write("""
 Upload an image of face with facial hair and let us classify them!
 
 """)
-def predict():
 
 
-    imagefile = st.sidebar.file_uploader("Upload the image",type=["png","jpg","jpeg"])
+def predict(image_cls):
+    # imagefile = st.sidebar.file_uploader("Upload the image", type=["png","jpg","jpeg"])
 
-    if imagefile != None:
+    # print(imghdr.what(imagefile))
 
-        try:
+    try:
 
-            image_b64 = base64.b64encode(imagefile.read())
+        image_b64 = base64.b64encode(image_cls.read())
 
-            util.load_saved_artifacts()
+        util.load_saved_artifacts()
 
-            predicted = util.classify_image(image_b64, None)
-        except:
-            print("Image could not be predicted unfortunately, please try a different image")
-            predicted = 0
+        predicted = util.classify_image(image_b64, None)
+    except:
+        predicted = "Image could not be predicted unfortunately, please try a different image"
 
-    else:
-        predicted = 0
 
     return predicted
 
 
 st.subheader("## Prediction")
-st.write(predict())
 
+imagefile = st.sidebar.file_uploader("Upload the image", type=["png", "jpg", "jpeg"])
+
+if imagefile is not None:
+    st.write(predict(imagefile))
+
+st.subheader("## Notes")
 st.write("""
 The following styles of facial hair can be recognized at the moment.
 More styles will be added in the near future
@@ -63,6 +65,3 @@ st.image(image_4, caption='Toothbrush Moustache')
 image_5 = Image.open('Pencil.png')
 
 st.image(image_5, caption='Pencil Moustache')
-
-
-

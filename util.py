@@ -17,7 +17,7 @@ __model = None
 
 def classify_image(image_base64_data, file_path= None):
     valid_image = cropped_image_if_2_eyes(file_path, image_base64_data)
-    if valid_image == True:
+    if valid_image is True:
         imgs = moustache(file_path, image_base64_data)
 
 
@@ -30,28 +30,33 @@ def classify_image(image_base64_data, file_path= None):
         scaled_img_har = cv2.resize(img_har, (50,50))
         combined_img = np.vstack((scaled_img.reshape(50 * 50 * 3, 1), scaled_img_har.reshape(50 * 50, 1))) #converts to 10,000 rows and 1 column
         len_image_array = (50 * 50 * 3) + (50 *50)
-        final = combined_img.reshape(1, len_image_array).astype(float) #converts to 10,000 columns and 1 row
+        final = combined_img.reshape(1, len_image_array).astype(float)
+
+        #converts to 10,000 columns and 1 row
+
+
 
         try:
 
             prediction = __model.predict(final)[0]
 
+            result.append({
+                'class': class_number_to_name(prediction),
+                # 'class_prob' : np.round(__model.predict_proba(final)* 100, 2).tolist()[0],
+                # 'class_dictionary': __class_name_to_number
+
+            })
+
         except:
             result = "None"
 
 
-        result.append({
-            'class' : class_number_to_name(prediction),
-            # 'class_prob' : np.round(__model.predict_proba(final)* 100, 2).tolist()[0],
-            # 'class_dictionary': __class_name_to_number
+        # This might just be returning one image anyways even if two faces, check this
+
+    m_result = "The facial hair is a %s" %result[0]['class']
 
 
-        })# This might just be returning one image anyways even if two faces, check this
-
-
-
-
-    return result
+    return m_result
 
 
 def load_saved_artifacts():
