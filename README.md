@@ -1,12 +1,15 @@
 # classify_fth
 
-Data Collection File using Bing Api:
+**Data Collection File from  local directory**:
 
 DATA COLLECTION.ipynb
 
-Data Processing:
+**Data Processing:**
 
 DATA PROCESSING.ipynb
+
+**Web Scraper:**
+web_scraper/ Bing_Image_Scrape.py
 
 
 ## GOAL OF PROJECT:
