@@ -12,7 +12,7 @@ facials = ['chevron mustache young men', 'toothbrush mustache styles', 'pencil m
 
 
 for facial in facials:
-    api_key = "852c86792d55469fb10ae1efaba0d74d"
+    api_key = "Azure API Key"
     endpoint = "https://api.bing.microsoft.com"
 
     url = f"{endpoint}/v7.0/images/search/"
