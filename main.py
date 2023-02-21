@@ -40,6 +40,8 @@ imagefile = st.sidebar.file_uploader("Upload the image", type=["png", "jpg", "jp
 if imagefile is not None:
     st.write(predict(imagefile))
 
+st.image(imagefile)
+
 st.subheader("## Notes")
 st.write("""
 The following styles of facial hair can be recognized at the moment.
