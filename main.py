@@ -38,9 +38,10 @@ st.subheader("## Prediction")
 imagefile = st.sidebar.file_uploader("Upload the image", type=["png", "jpg", "jpeg"])
 
 if imagefile is not None:
+    st.image(imagefile)
     st.write(predict(imagefile))
 
-st.image(imagefile)
+
 
 st.subheader("## Notes")
 st.write("""
