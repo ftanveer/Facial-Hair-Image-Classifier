@@ -1,5 +1,9 @@
 # classify_fth
 
+Follow link below for deployed website:
+
+https://ftanveer-classify-fth-main-9bebvm.streamlitapp.com/
+
 **Data Collection File from  local directory**:
 
 DATA COLLECTION.ipynb
@@ -30,6 +34,4 @@ Given the image fed to the model falls into chevron, horseshoe, pencil, handleba
 
 The model needs to be improved to handle multiple faces in one picture, label faces with no facial hair, detect more variety of facial hairs. 
 
-Follow link below for deployed website:
 
-https://ftanveer-classify-fth-main-9bebvm.streamlitapp.com/
