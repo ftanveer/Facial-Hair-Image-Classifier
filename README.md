@@ -2,7 +2,7 @@
 
 Follow link below for deployed website:
 
-https://ftanveer-classify-fth-main-9bebvm.streamlitapp.com/
+https://ftanveer-classify-fth-main-waf9sl.streamlit.app/
 
 **Data Collection File from  local directory**:
 
